@@ -129,26 +129,9 @@
               doloribus ut iure itaque quibusdam rem accusantium deserunt
               reprehenderit sunt minus.
             </p>
-            <button
-              class="btn btn-outline-secondary text-capitalize"
-              data-toggle="modal"
-              data-target="#modal"
-            >
+            <button class="btn btn-outline-secondary text-capitalize">
               Find out more
             </button>
-            <div class="modal" id="modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h3 class="modal-title">Contact Us</h3>
-                    <button class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-group"></form>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -316,7 +299,45 @@
           <div class="col-md py-4">
             <h3>LoopLAB</h3>
             <p>Copyright Albert's &copy; 2020</p>
-            <button class="btn btn-primary">Contact Us</button>
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modal"
+            >
+              Contact Us
+            </button>
+            <div class="modal text-dark text-left" id="modal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title h5">Contact Us</h3>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" class="form-control mb-3" />
+                      <label for="email">Email</label>
+                      <input type="text" id="email" class="form-control mb-3" />
+                      <label for="message">Message</label>
+                      <textarea
+                        class="d-block form-control mb-3"
+                        id="message"
+                      ></textarea>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      class="btn btn-primary btn-block"
+                      data-dismiss="modal"
+                      data-target="#modal"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
