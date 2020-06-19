@@ -1,0 +1,33 @@
+body {
+  background-color: #333333;
+}
+.navbar {
+  opacity: 0.8;
+  border-bottom: #008ed6 solid 3px;
+}
+#home {
+  background: url("/img/home.jpg") no-repeat center left/ cover;
+  min-height: 700px;
+  box-shadow: 0 0 0 2000px inset rgba(0, 0, 0, 0.7);
+  background-attachment: fixed;
+}
+.home-inner {
+  padding-top: 150px;
+}
+#form {
+  opacity: 0.8;
+}
+#home .fas,
+#create-body .fas {
+  color: #008ed6;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+#explore-body .fas,
+#share-body .fas {
+  color: white;
+  background-color: #333333;
+  padding: 5px;
+  border-radius: 5px;
+}
