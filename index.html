@@ -1,393 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13 апреля — 3 года вместе 💛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Bootstrap Project</title>
   </head>
   <body>
-    <div class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
-      <div class="container">
-        <div class="navbar-brand" style="cursor: pointer;">LoopLAB</div>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#nav1"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav1">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item">
-              <a href="#explore" class="nav-link">Explore</a>
-            </li>
-            <li class="nav-item">
-              <a href="#create" class="nav-link">Create</a>
-            </li>
-            <li class="nav-item">
-              <a href="#share" class="nav-link">Share</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <section id="home" class="text-white">
-      <div class="home-inner container">
-        <div class="row">
-          <div class="col-lg-8 d-lg-block d-none">
-            <h1 class="display-4">
-              Build <strong>social profiles</strong> and gain revenue
-              <strong>profits</strong>
-            </h1>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 text-center" id="form">
-            <div class="card bg-primary">
-              <div class="card-body">
-                <h3 class="text-capitalize card-title">Sign up today</h3>
-                <p>Please fill out this form to register</p>
-                <form>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Email"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="submit"
-                    class="btn btn-block btn-outline-light"
-                    value="Submit"
-                  />
-                </form>
-              </div>
-            </div>
+    <main class="app">
+      <section class="hero">
+        <p class="badge">13 апреля</p>
+        <h1>3 года отношений с моей невестой</h1>
+        <p class="subtitle">
+          Мини‑чат о наших самых первых днях общения. Заполни форму — и история
+          оживёт 💬
+        </p>
+      </section>
+
+      <section class="content">
+        <div class="chat-card" aria-live="polite">
+          <header class="chat-header">
+            <h2>Наш чат: первые дни</h2>
+            <p id="chatStatus">Ожидаю ответы формы…</p>
+          </header>
+
+          <div id="chatWindow" class="chat-window">
+            <article class="bubble bubble-left">
+              Помнишь, как неловко, но тепло начался наш диалог?
+            </article>
+            <article class="bubble bubble-right">
+              Я сохранил это чувство до сегодняшнего дня ✨
+            </article>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="explore">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Explore</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-secondary text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="explore-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/explore-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Explore & Connect
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Create</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create-body" class="text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5 order-1">
-            <img
-              class="rounded-circle w-100"
-              src="./img/create-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5">
-            <h1 class="h3">
-              Create Your Passion
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Share</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/share-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Share What You Create
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center text-white">
-          <div class="col-md py-4">
-            <h3>LoopLAB</h3>
-            <p>Copyright Albert's &copy; 2020</p>
-            <button
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#modal"
-            >
-              Contact Us
-            </button>
-            <div class="modal text-dark text-left" id="modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h3 class="modal-title h5">Contact Us</h3>
-                    <button class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" class="form-control mb-3" />
-                      <label for="email">Email</label>
-                      <input type="text" id="email" class="form-control mb-3" />
-                      <label for="message">Message</label>
-                      <textarea
-                        class="d-block form-control mb-3"
-                        id="message"
-                      ></textarea>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      class="btn btn-primary btn-block"
-                      data-dismiss="modal"
-                      data-target="#modal"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+
+        <form id="memoryForm" class="memory-form">
+          <h2>Форма воспоминаний</h2>
+
+          <label for="firstDate">Когда мы впервые написали друг другу?</label>
+          <input
+            id="firstDate"
+            name="firstDate"
+            type="text"
+            placeholder="Например: 13 апреля 2023"
+            required
+          />
+
+          <label for="firstTopic">О чём был наш первый разговор?</label>
+          <input
+            id="firstTopic"
+            name="firstTopic"
+            type="text"
+            placeholder="Например: о музыке и планах на лето"
+            required
+          />
+
+          <label for="firstEmoji">Какой смайлик был «нашим» в начале?</label>
+          <input
+            id="firstEmoji"
+            name="firstEmoji"
+            type="text"
+            placeholder="Например: 😊"
+            maxlength="8"
+            required
+          />
+
+          <label for="warmWords">Какие слова ты хочешь оставить в этом дне?</label>
+          <textarea
+            id="warmWords"
+            name="warmWords"
+            rows="4"
+            placeholder="Пара тёплых строк для нашей истории"
+            required
+          ></textarea>
+
+          <button type="submit">Показать нашу мини‑переписку</button>
+        </form>
+      </section>
+    </main>
+
     <script>
-      $("body").scrollspy({ target: "#nav1" });
-      $("#nav1 a").on("click", function (e) {
-        if (this.hash !== "") {
-          e.preventDefault();
-          const hash = this.hash;
-          $("html,body").animate(
-            {
-              scrollTop: $(hash).offset().top,
-            },
-            900,
-            function () {
-              window.location.hash = hash;
-            }
-          );
-        }
-      });
-      $(".navbar-brand").on("click", function (e) {
-        window.location.hash = "#home";
-        this.hash = "#home";
-        e.preventDefault();
-        const hash = this.hash;
-        $("html,body").animate(
-          {
-            scrollTop: $(hash).offset().top,
-          },
-          900,
-          function () {
-            window.location.hash = hash;
-          }
-        );
+      const form = document.getElementById("memoryForm");
+      const chatWindow = document.getElementById("chatWindow");
+      const chatStatus = document.getElementById("chatStatus");
+
+      const messages = [
+        ({ firstDate }) => `— Привет! Мне кажется, ${firstDate} всё и началось.`,
+        ({ firstTopic }) => `— А потом мы говорили ${firstTopic} и не заметили время.`,
+        ({ firstEmoji }) => `— И этот ${firstEmoji} стал нашим маленьким символом.`,
+        ({ warmWords }) => `— ${warmWords}`,
+        () =>
+          "— Спасибо за эти 3 года. Хочу, чтобы этот чат был только началом новых красивых страниц ❤️",
+      ];
+
+      function addBubble(text, side) {
+        const bubble = document.createElement("article");
+        bubble.className = `bubble ${side}`;
+        bubble.textContent = text;
+        chatWindow.appendChild(bubble);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = {
+          firstDate: formData.get("firstDate").toString().trim(),
+          firstTopic: formData.get("firstTopic").toString().trim(),
+          firstEmoji: formData.get("firstEmoji").toString().trim(),
+          warmWords: formData.get("warmWords").toString().trim(),
+        };
+
+        chatWindow.innerHTML = "";
+        chatStatus.textContent = "Воспоминания загружены 💛";
+
+        messages.forEach((createMessage, index) => {
+          setTimeout(() => {
+            addBubble(createMessage(data), index % 2 === 0 ? "bubble-left" : "bubble-right");
+          }, 550 * (index + 1));
+        });
       });
     </script>
   </body>
