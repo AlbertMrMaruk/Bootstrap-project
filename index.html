@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -18,114 +18,248 @@
         <p class="badge">13 апреля</p>
         <h1>3 года отношений с моей невестой</h1>
         <p class="subtitle">
-          Мини‑чат о наших самых первых днях общения. Заполни форму — и история
-          оживёт 💬
+          Вопросы сначала общие, потом — мини‑викторина по нашей самой первой
+          переписке. После выбора вариантов чат продолжится так, как было у нас 💬
         </p>
       </section>
 
       <section class="content">
-        <div class="chat-card" aria-live="polite">
+        <article class="chat-card" aria-live="polite">
           <header class="chat-header">
-            <h2>Наш чат: первые дни</h2>
-            <p id="chatStatus">Ожидаю ответы формы…</p>
+            <h2>Виртуальный чат: начало нашей истории</h2>
+            <p id="chatStatus">Заполни общие вопросы и нажми «Начать» ✨</p>
           </header>
 
           <div id="chatWindow" class="chat-window">
             <article class="bubble bubble-left">
-              Помнишь, как неловко, но тепло начался наш диалог?
-            </article>
-            <article class="bubble bubble-right">
-              Я сохранил это чувство до сегодняшнего дня ✨
+              Здесь появится наша история — шаг за шагом 💛
             </article>
           </div>
-        </div>
+        </article>
 
-        <form id="memoryForm" class="memory-form">
-          <h2>Форма воспоминаний</h2>
+        <section class="quiz-card">
+          <form id="setupForm" class="memory-form stage is-active">
+            <h2>1) Общие вопросы</h2>
 
-          <label for="firstDate">Когда мы впервые написали друг другу?</label>
-          <input
-            id="firstDate"
-            name="firstDate"
-            type="text"
-            placeholder="Например: 13 апреля 2023"
-            required
-          />
+            <label for="anniversaryDate">Наша дата (или дата знакомства)</label>
+            <input
+              id="anniversaryDate"
+              name="anniversaryDate"
+              type="text"
+              placeholder="Например: 13 апреля 2023"
+              required
+            />
 
-          <label for="firstTopic">О чём был наш первый разговор?</label>
-          <input
-            id="firstTopic"
-            name="firstTopic"
-            type="text"
-            placeholder="Например: о музыке и планах на лето"
-            required
-          />
+            <label for="yourName">Как тебя подписать в чате?</label>
+            <input
+              id="yourName"
+              name="yourName"
+              type="text"
+              placeholder="Например: Любимый"
+              required
+            />
 
-          <label for="firstEmoji">Какой смайлик был «нашим» в начале?</label>
-          <input
-            id="firstEmoji"
-            name="firstEmoji"
-            type="text"
-            placeholder="Например: 😊"
-            maxlength="8"
-            required
-          />
+            <label for="partnerName">Как подписать невесту в чате?</label>
+            <input
+              id="partnerName"
+              name="partnerName"
+              type="text"
+              placeholder="Например: Любимая"
+              required
+            />
 
-          <label for="warmWords">Какие слова ты хочешь оставить в этом дне?</label>
-          <textarea
-            id="warmWords"
-            name="warmWords"
-            rows="4"
-            placeholder="Пара тёплых строк для нашей истории"
-            required
-          ></textarea>
+            <button type="submit">Начать мини‑чат</button>
+          </form>
 
-          <button type="submit">Показать нашу мини‑переписку</button>
-        </form>
+          <section id="quizStage" class="memory-form stage" aria-live="polite">
+            <h2>2) Кто это писал в начале?</h2>
+            <p class="helper" id="quizProgress">Вопрос 1 из 3</p>
+            <p class="question" id="quizQuestion"></p>
+            <div id="quizOptions" class="options"></div>
+          </section>
+
+          <section id="resultStage" class="memory-form stage">
+            <h2>3) Готово 💫</h2>
+            <p class="helper" id="resultText"></p>
+            <button id="restartBtn" type="button">Пройти заново</button>
+          </section>
+        </section>
       </section>
     </main>
 
     <script>
-      const form = document.getElementById("memoryForm");
+      const setupForm = document.getElementById("setupForm");
+      const quizStage = document.getElementById("quizStage");
+      const resultStage = document.getElementById("resultStage");
       const chatWindow = document.getElementById("chatWindow");
       const chatStatus = document.getElementById("chatStatus");
+      const quizProgress = document.getElementById("quizProgress");
+      const quizQuestion = document.getElementById("quizQuestion");
+      const quizOptions = document.getElementById("quizOptions");
+      const resultText = document.getElementById("resultText");
+      const restartBtn = document.getElementById("restartBtn");
 
-      const messages = [
-        ({ firstDate }) => `— Привет! Мне кажется, ${firstDate} всё и началось.`,
-        ({ firstTopic }) => `— А потом мы говорили ${firstTopic} и не заметили время.`,
-        ({ firstEmoji }) => `— И этот ${firstEmoji} стал нашим маленьким символом.`,
-        ({ warmWords }) => `— ${warmWords}`,
-        () =>
-          "— Спасибо за эти 3 года. Хочу, чтобы этот чат был только началом новых красивых страниц ❤️",
+      const introMessages = [
+        (state) => ({
+          side: "left",
+          text: `${state.anniversaryDate} — дата, с которой началась наша история ✨`,
+        }),
+        (state) => ({
+          side: "right",
+          text: `${state.yourName} и ${state.partnerName}: вспоминаем первый диалог…`,
+        }),
+        () => ({
+          side: "left",
+          text: "Сейчас будут короткие вопросы с вариантами ответов (по 3 варианта).",
+        }),
       ];
 
-      function addBubble(text, side) {
+      // Замените эти тексты на реальные, когда пришлёте скрины первых страниц переписки.
+      const quizData = [
+        {
+          prompt: "Кто написал самое первое «Привет»?",
+          options: [
+            { label: "Это написал(а) я", correct: true, side: "right" },
+            { label: "Это написала невеста", correct: false, side: "left" },
+            { label: "Сообщение было без «Привет»", correct: false, side: "left" },
+          ],
+          reveal: {
+            left: "Невеста: Привет 😊",
+            right: "Ты: Привет! Очень рад(а) твоему сообщению",
+          },
+        },
+        {
+          prompt: "Кто первым задал вопрос «Как прошёл день?»",
+          options: [
+            { label: "Первым(ой) был(а) я", correct: false, side: "right" },
+            { label: "Первой была невеста", correct: true, side: "left" },
+            { label: "Этого вопроса не было", correct: false, side: "left" },
+          ],
+          reveal: {
+            left: "Невеста: Как твой день прошёл?",
+            right: "Ты: Намного лучше после твоего сообщения 💛",
+          },
+        },
+        {
+          prompt: "Кто первым предложил продолжить общение завтра?",
+          options: [
+            { label: "Это предложил(а) я", correct: false, side: "right" },
+            { label: "Это предложила невеста", correct: false, side: "left" },
+            { label: "Мы предложили это почти одновременно", correct: true, side: "right" },
+          ],
+          reveal: {
+            left: "Невеста: Давай завтра тоже спишемся?",
+            right: "Ты: Да! Я как раз хотел(а) это предложить ✨",
+          },
+        },
+      ];
+
+      const endingMessages = [
+        (state) => ({
+          side: "left",
+          text: `${state.partnerName}: Спасибо, что бережно хранишь нашу историю ❤️`,
+        }),
+        (state) => ({
+          side: "right",
+          text: `${state.yourName}: С годовщиной нас. Люблю тебя!`,
+        }),
+      ];
+
+      const state = {
+        anniversaryDate: "",
+        yourName: "Ты",
+        partnerName: "Невеста",
+        questionIndex: 0,
+        score: 0,
+      };
+
+      function showStage(stageEl) {
+        [setupForm, quizStage, resultStage].forEach((el) => el.classList.remove("is-active"));
+        stageEl.classList.add("is-active");
+      }
+
+      function addBubble(text, sideClass) {
         const bubble = document.createElement("article");
-        bubble.className = `bubble ${side}`;
+        bubble.className = `bubble ${sideClass === "left" ? "bubble-left" : "bubble-right"}`;
         bubble.textContent = text;
         chatWindow.appendChild(bubble);
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const data = {
-          firstDate: formData.get("firstDate").toString().trim(),
-          firstTopic: formData.get("firstTopic").toString().trim(),
-          firstEmoji: formData.get("firstEmoji").toString().trim(),
-          warmWords: formData.get("warmWords").toString().trim(),
-        };
-
-        chatWindow.innerHTML = "";
-        chatStatus.textContent = "Воспоминания загружены 💛";
-
+      function appendMessages(messages, delay = 500) {
         messages.forEach((createMessage, index) => {
           setTimeout(() => {
-            addBubble(createMessage(data), index % 2 === 0 ? "bubble-left" : "bubble-right");
-          }, 550 * (index + 1));
+            const message = createMessage(state);
+            addBubble(message.text, message.side);
+          }, delay * (index + 1));
         });
+      }
+
+      function renderQuestion() {
+        const current = quizData[state.questionIndex];
+        quizProgress.textContent = `Вопрос ${state.questionIndex + 1} из ${quizData.length}`;
+        quizQuestion.textContent = current.prompt;
+        quizOptions.innerHTML = "";
+
+        current.options.forEach((option) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "option-btn";
+          btn.textContent = option.label;
+          btn.addEventListener("click", () => submitAnswer(option, current));
+          quizOptions.appendChild(btn);
+        });
+      }
+
+      function submitAnswer(option, currentQuestion) {
+        if (option.correct) {
+          state.score += 1;
+          chatStatus.textContent = "Точно! Продолжаем нашу переписку 💛";
+        } else {
+          chatStatus.textContent = "Ничего, это просто тёплая игра воспоминаний ✨";
+        }
+
+        addBubble(`Выбор: ${option.label}`, option.side);
+        addBubble(currentQuestion.reveal.left, "left");
+        addBubble(currentQuestion.reveal.right, "right");
+
+        state.questionIndex += 1;
+
+        if (state.questionIndex < quizData.length) {
+          renderQuestion();
+          return;
+        }
+
+        appendMessages(endingMessages, 650);
+        resultText.textContent = `Ты угадал(а) ${state.score} из ${quizData.length}. Когда пришлёшь реальные первые сообщения, я подгоню вопросы один в один под вашу переписку.`;
+        chatStatus.textContent = "История завершена. С годовщиной вас!";
+        showStage(resultStage);
+      }
+
+      setupForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(setupForm);
+        state.anniversaryDate = data.get("anniversaryDate").toString().trim();
+        state.yourName = data.get("yourName").toString().trim();
+        state.partnerName = data.get("partnerName").toString().trim();
+        state.questionIndex = 0;
+        state.score = 0;
+
+        chatWindow.innerHTML = "";
+        chatStatus.textContent = "Запускаю историю ваших первых сообщений…";
+
+        appendMessages(introMessages, 550);
+        showStage(quizStage);
+        setTimeout(renderQuestion, 1800);
+      });
+
+      restartBtn.addEventListener("click", () => {
+        setupForm.reset();
+        chatWindow.innerHTML = "";
+        addBubble("Здесь появится наша история — шаг за шагом 💛", "left");
+        chatStatus.textContent = "Заполни общие вопросы и нажми «Начать» ✨";
+        showStage(setupForm);
       });
     </script>
   </body>

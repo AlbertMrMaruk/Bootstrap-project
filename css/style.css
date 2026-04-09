@@ -20,7 +20,7 @@ body {
 }
 
 .app {
-  width: min(1120px, 94%);
+  width: min(1140px, 94%);
   margin: 0 auto;
   padding: 2.5rem 0 3rem;
 }
@@ -47,7 +47,7 @@ h1 {
 
 .subtitle {
   margin: 0 auto;
-  max-width: 680px;
+  max-width: 780px;
   color: var(--muted);
   line-height: 1.55;
 }
@@ -59,7 +59,7 @@ h1 {
 }
 
 .chat-card,
-.memory-form {
+.quiz-card {
   background: linear-gradient(145deg, #1b1d38, var(--card));
   border: 1px solid #2a2d53;
   border-radius: 18px;
@@ -71,7 +71,7 @@ h1 {
 .memory-form h2 {
   margin-top: 0;
   margin-bottom: 0.25rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 .chat-header p {
@@ -81,7 +81,7 @@ h1 {
 }
 
 .chat-window {
-  height: 420px;
+  height: 460px;
   overflow-y: auto;
   padding: 0.3rem;
   display: grid;
@@ -110,7 +110,15 @@ h1 {
   font-weight: 600;
 }
 
-.memory-form {
+.quiz-card {
+  display: grid;
+}
+
+.stage {
+  display: none;
+}
+
+.stage.is-active {
   display: grid;
   gap: 0.55rem;
 }
@@ -120,7 +128,8 @@ h1 {
 }
 
 .memory-form input,
-.memory-form textarea {
+.memory-form textarea,
+.option-btn {
   width: 100%;
   border: 1px solid #3a3f73;
   background: #13152a;
@@ -131,23 +140,52 @@ h1 {
 }
 
 .memory-form input:focus,
-.memory-form textarea:focus {
+.memory-form textarea:focus,
+.option-btn:focus {
   outline: none;
   border-color: var(--accent-2);
   box-shadow: 0 0 0 2px rgba(255, 209, 102, 0.25);
 }
 
-.memory-form button {
+.memory-form button,
+.option-btn {
   margin-top: 0.25rem;
-  border: 0;
   border-radius: 10px;
   padding: 0.8rem 1rem;
-  background: linear-gradient(90deg, var(--accent), #ff9f6e);
-  color: #2f1020;
   font-weight: 700;
   cursor: pointer;
 }
 
+.memory-form button {
+  border: 0;
+  background: linear-gradient(90deg, var(--accent), #ff9f6e);
+  color: #2f1020;
+}
+
+.option-btn {
+  border: 1px solid #454b8b;
+  background: #1a1e3f;
+  color: var(--text);
+  text-align: left;
+}
+
+.option-btn:hover,
 .memory-form button:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.07);
+}
+
+.options {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.helper {
+  margin: 0;
+  color: var(--muted);
+}
+
+.question {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
 }
