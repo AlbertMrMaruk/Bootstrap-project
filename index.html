@@ -1,393 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13 апреля — 3 года вместе 💛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Bootstrap Project</title>
   </head>
   <body>
-    <div class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
-      <div class="container">
-        <div class="navbar-brand" style="cursor: pointer;">LoopLAB</div>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#nav1"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav1">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item">
-              <a href="#explore" class="nav-link">Explore</a>
-            </li>
-            <li class="nav-item">
-              <a href="#create" class="nav-link">Create</a>
-            </li>
-            <li class="nav-item">
-              <a href="#share" class="nav-link">Share</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <section id="home" class="text-white">
-      <div class="home-inner container">
-        <div class="row">
-          <div class="col-lg-8 d-lg-block d-none">
-            <h1 class="display-4">
-              Build <strong>social profiles</strong> and gain revenue
-              <strong>profits</strong>
-            </h1>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
+    <main class="app">
+      <section class="hero">
+        <p class="badge">13 апреля</p>
+        <h1>3 года отношений с моей невестой</h1>
+        <p class="subtitle">
+          Вопросы сначала общие, потом — мини‑викторина по нашей самой первой
+          переписке. После выбора вариантов чат продолжится так, как было у нас 💬
+        </p>
+      </section>
+
+      <section class="content">
+        <article class="chat-card" aria-live="polite">
+          <header class="chat-header">
+            <h2>Виртуальный чат: начало нашей истории</h2>
+            <p id="chatStatus">Заполни общие вопросы и нажми «Начать» ✨</p>
+          </header>
+
+          <div id="chatWindow" class="chat-window">
+            <article class="bubble bubble-left">
+              Здесь появится наша история — шаг за шагом 💛
+            </article>
           </div>
-          <div class="col-lg-4 text-center" id="form">
-            <div class="card bg-primary">
-              <div class="card-body">
-                <h3 class="text-capitalize card-title">Sign up today</h3>
-                <p>Please fill out this form to register</p>
-                <form>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Email"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="submit"
-                    class="btn btn-block btn-outline-light"
-                    value="Submit"
-                  />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="explore">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Explore</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-secondary text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="explore-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/explore-section1.jpg"
-              alt=""
+        </article>
+
+        <section class="quiz-card">
+          <form id="setupForm" class="memory-form stage is-active">
+            <h2>1) Общие вопросы</h2>
+
+            <label for="anniversaryDate">Наша дата (или дата знакомства)</label>
+            <input
+              id="anniversaryDate"
+              name="anniversaryDate"
+              type="text"
+              placeholder="Например: 13 апреля 2023"
+              required
             />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Explore & Connect
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Create</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create-body" class="text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5 order-1">
-            <img
-              class="rounded-circle w-100"
-              src="./img/create-section1.jpg"
-              alt=""
+
+            <label for="yourName">Как тебя подписать в чате?</label>
+            <input
+              id="yourName"
+              name="yourName"
+              type="text"
+              placeholder="Например: Любимый"
+              required
             />
-          </div>
-          <div class="col-md-6 py-5">
-            <h1 class="h3">
-              Create Your Passion
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Share</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/share-section1.jpg"
-              alt=""
+
+            <label for="partnerName">Как подписать невесту в чате?</label>
+            <input
+              id="partnerName"
+              name="partnerName"
+              type="text"
+              placeholder="Например: Любимая"
+              required
             />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Share What You Create
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center text-white">
-          <div class="col-md py-4">
-            <h3>LoopLAB</h3>
-            <p>Copyright Albert's &copy; 2020</p>
-            <button
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#modal"
-            >
-              Contact Us
-            </button>
-            <div class="modal text-dark text-left" id="modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h3 class="modal-title h5">Contact Us</h3>
-                    <button class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" class="form-control mb-3" />
-                      <label for="email">Email</label>
-                      <input type="text" id="email" class="form-control mb-3" />
-                      <label for="message">Message</label>
-                      <textarea
-                        class="d-block form-control mb-3"
-                        id="message"
-                      ></textarea>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      class="btn btn-primary btn-block"
-                      data-dismiss="modal"
-                      data-target="#modal"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+
+            <button type="submit">Начать мини‑чат</button>
+          </form>
+
+          <section id="quizStage" class="memory-form stage" aria-live="polite">
+            <h2>2) Кто это писал в начале?</h2>
+            <p class="helper" id="quizProgress">Вопрос 1 из 3</p>
+            <p class="question" id="quizQuestion"></p>
+            <div id="quizOptions" class="options"></div>
+          </section>
+
+          <section id="resultStage" class="memory-form stage">
+            <h2>3) Готово 💫</h2>
+            <p class="helper" id="resultText"></p>
+            <button id="restartBtn" type="button">Пройти заново</button>
+          </section>
+        </section>
+      </section>
+    </main>
+
     <script>
-      $("body").scrollspy({ target: "#nav1" });
-      $("#nav1 a").on("click", function (e) {
-        if (this.hash !== "") {
-          e.preventDefault();
-          const hash = this.hash;
-          $("html,body").animate(
-            {
-              scrollTop: $(hash).offset().top,
-            },
-            900,
-            function () {
-              window.location.hash = hash;
-            }
-          );
-        }
-      });
-      $(".navbar-brand").on("click", function (e) {
-        window.location.hash = "#home";
-        this.hash = "#home";
-        e.preventDefault();
-        const hash = this.hash;
-        $("html,body").animate(
-          {
-            scrollTop: $(hash).offset().top,
+      const setupForm = document.getElementById("setupForm");
+      const quizStage = document.getElementById("quizStage");
+      const resultStage = document.getElementById("resultStage");
+      const chatWindow = document.getElementById("chatWindow");
+      const chatStatus = document.getElementById("chatStatus");
+      const quizProgress = document.getElementById("quizProgress");
+      const quizQuestion = document.getElementById("quizQuestion");
+      const quizOptions = document.getElementById("quizOptions");
+      const resultText = document.getElementById("resultText");
+      const restartBtn = document.getElementById("restartBtn");
+
+      const introMessages = [
+        (state) => ({
+          side: "left",
+          text: `${state.anniversaryDate} — дата, с которой началась наша история ✨`,
+        }),
+        (state) => ({
+          side: "right",
+          text: `${state.yourName} и ${state.partnerName}: вспоминаем первый диалог…`,
+        }),
+        () => ({
+          side: "left",
+          text: "Сейчас будут короткие вопросы с вариантами ответов (по 3 варианта).",
+        }),
+      ];
+
+      // Замените эти тексты на реальные, когда пришлёте скрины первых страниц переписки.
+      const quizData = [
+        {
+          prompt: "Кто написал самое первое «Привет»?",
+          options: [
+            { label: "Это написал(а) я", correct: true, side: "right" },
+            { label: "Это написала невеста", correct: false, side: "left" },
+            { label: "Сообщение было без «Привет»", correct: false, side: "left" },
+          ],
+          reveal: {
+            left: "Невеста: Привет 😊",
+            right: "Ты: Привет! Очень рад(а) твоему сообщению",
           },
-          900,
-          function () {
-            window.location.hash = hash;
-          }
-        );
+        },
+        {
+          prompt: "Кто первым задал вопрос «Как прошёл день?»",
+          options: [
+            { label: "Первым(ой) был(а) я", correct: false, side: "right" },
+            { label: "Первой была невеста", correct: true, side: "left" },
+            { label: "Этого вопроса не было", correct: false, side: "left" },
+          ],
+          reveal: {
+            left: "Невеста: Как твой день прошёл?",
+            right: "Ты: Намного лучше после твоего сообщения 💛",
+          },
+        },
+        {
+          prompt: "Кто первым предложил продолжить общение завтра?",
+          options: [
+            { label: "Это предложил(а) я", correct: false, side: "right" },
+            { label: "Это предложила невеста", correct: false, side: "left" },
+            { label: "Мы предложили это почти одновременно", correct: true, side: "right" },
+          ],
+          reveal: {
+            left: "Невеста: Давай завтра тоже спишемся?",
+            right: "Ты: Да! Я как раз хотел(а) это предложить ✨",
+          },
+        },
+      ];
+
+      const endingMessages = [
+        (state) => ({
+          side: "left",
+          text: `${state.partnerName}: Спасибо, что бережно хранишь нашу историю ❤️`,
+        }),
+        (state) => ({
+          side: "right",
+          text: `${state.yourName}: С годовщиной нас. Люблю тебя!`,
+        }),
+      ];
+
+      const state = {
+        anniversaryDate: "",
+        yourName: "Ты",
+        partnerName: "Невеста",
+        questionIndex: 0,
+        score: 0,
+      };
+
+      function showStage(stageEl) {
+        [setupForm, quizStage, resultStage].forEach((el) => el.classList.remove("is-active"));
+        stageEl.classList.add("is-active");
+      }
+
+      function addBubble(text, sideClass) {
+        const bubble = document.createElement("article");
+        bubble.className = `bubble ${sideClass === "left" ? "bubble-left" : "bubble-right"}`;
+        bubble.textContent = text;
+        chatWindow.appendChild(bubble);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      function appendMessages(messages, delay = 500) {
+        messages.forEach((createMessage, index) => {
+          setTimeout(() => {
+            const message = createMessage(state);
+            addBubble(message.text, message.side);
+          }, delay * (index + 1));
+        });
+      }
+
+      function renderQuestion() {
+        const current = quizData[state.questionIndex];
+        quizProgress.textContent = `Вопрос ${state.questionIndex + 1} из ${quizData.length}`;
+        quizQuestion.textContent = current.prompt;
+        quizOptions.innerHTML = "";
+
+        current.options.forEach((option) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "option-btn";
+          btn.textContent = option.label;
+          btn.addEventListener("click", () => submitAnswer(option, current));
+          quizOptions.appendChild(btn);
+        });
+      }
+
+      function submitAnswer(option, currentQuestion) {
+        if (option.correct) {
+          state.score += 1;
+          chatStatus.textContent = "Точно! Продолжаем нашу переписку 💛";
+        } else {
+          chatStatus.textContent = "Ничего, это просто тёплая игра воспоминаний ✨";
+        }
+
+        addBubble(`Выбор: ${option.label}`, option.side);
+        addBubble(currentQuestion.reveal.left, "left");
+        addBubble(currentQuestion.reveal.right, "right");
+
+        state.questionIndex += 1;
+
+        if (state.questionIndex < quizData.length) {
+          renderQuestion();
+          return;
+        }
+
+        appendMessages(endingMessages, 650);
+        resultText.textContent = `Ты угадал(а) ${state.score} из ${quizData.length}. Когда пришлёшь реальные первые сообщения, я подгоню вопросы один в один под вашу переписку.`;
+        chatStatus.textContent = "История завершена. С годовщиной вас!";
+        showStage(resultStage);
+      }
+
+      setupForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(setupForm);
+        state.anniversaryDate = data.get("anniversaryDate").toString().trim();
+        state.yourName = data.get("yourName").toString().trim();
+        state.partnerName = data.get("partnerName").toString().trim();
+        state.questionIndex = 0;
+        state.score = 0;
+
+        chatWindow.innerHTML = "";
+        chatStatus.textContent = "Запускаю историю ваших первых сообщений…";
+
+        appendMessages(introMessages, 550);
+        showStage(quizStage);
+        setTimeout(renderQuestion, 1800);
+      });
+
+      restartBtn.addEventListener("click", () => {
+        setupForm.reset();
+        chatWindow.innerHTML = "";
+        addBubble("Здесь появится наша история — шаг за шагом 💛", "left");
+        chatStatus.textContent = "Заполни общие вопросы и нажми «Начать» ✨";
+        showStage(setupForm);
       });
     </script>
   </body>
