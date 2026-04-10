@@ -189,3 +189,14 @@ h1 {
   font-weight: 600;
   line-height: 1.4;
 }
+
+
+.date-divider {
+  margin: 0.4rem auto 0.1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #272b56;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}

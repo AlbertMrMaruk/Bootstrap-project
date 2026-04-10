@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13 апреля — 3 года вместе 💛</title>
+    <title>Первая переписка — Альберт и Катя 💛</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,82 +15,46 @@
   <body>
     <main class="app">
       <section class="hero">
-        <p class="badge">13 апреля</p>
-        <h1>3 года отношений с моей невестой</h1>
+        <p class="badge">13 апреля — 3 года вместе</p>
+        <h1>Тест по вашей первой переписке</h1>
         <p class="subtitle">
-          Вопросы сначала общие, потом — мини‑викторина по нашей самой первой
-          переписке. После выбора вариантов чат продолжится так, как было у нас 💬
+          Сначала мини‑тест с вариантами ответа, а после него — постепенное
+          воспроизведение вашего чата от 14–15 апреля 2023.
         </p>
       </section>
 
       <section class="content">
         <article class="chat-card" aria-live="polite">
           <header class="chat-header">
-            <h2>Виртуальный чат: начало нашей истории</h2>
-            <p id="chatStatus">Заполни общие вопросы и нажми «Начать» ✨</p>
+            <h2>Виртуальный чат: Альберт и Катя (kdak)</h2>
+            <p id="chatStatus">Пройди тест, чтобы открыть переписку целиком ✨</p>
           </header>
 
           <div id="chatWindow" class="chat-window">
-            <article class="bubble bubble-left">
-              Здесь появится наша история — шаг за шагом 💛
-            </article>
+            <article class="bubble bubble-left">Здесь постепенно появятся ваши сообщения 💬</article>
           </div>
         </article>
 
         <section class="quiz-card">
-          <form id="setupForm" class="memory-form stage is-active">
-            <h2>1) Общие вопросы</h2>
-
-            <label for="anniversaryDate">Наша дата (или дата знакомства)</label>
-            <input
-              id="anniversaryDate"
-              name="anniversaryDate"
-              type="text"
-              placeholder="Например: 13 апреля 2023"
-              required
-            />
-
-            <label for="yourName">Как тебя подписать в чате?</label>
-            <input
-              id="yourName"
-              name="yourName"
-              type="text"
-              placeholder="Например: Любимый"
-              required
-            />
-
-            <label for="partnerName">Как подписать невесту в чате?</label>
-            <input
-              id="partnerName"
-              name="partnerName"
-              type="text"
-              placeholder="Например: Любимая"
-              required
-            />
-
-            <button type="submit">Начать мини‑чат</button>
-          </form>
-
-          <section id="quizStage" class="memory-form stage" aria-live="polite">
-            <h2>2) Кто это писал в начале?</h2>
-            <p class="helper" id="quizProgress">Вопрос 1 из 3</p>
+          <section id="quizStage" class="memory-form stage is-active" aria-live="polite">
+            <h2>Кто это написал?</h2>
+            <p class="helper" id="quizProgress">Вопрос 1 из 6</p>
             <p class="question" id="quizQuestion"></p>
             <div id="quizOptions" class="options"></div>
           </section>
 
-          <section id="resultStage" class="memory-form stage">
-            <h2>3) Готово 💫</h2>
+          <section id="replayStage" class="memory-form stage">
+            <h2>Готово 💫</h2>
             <p class="helper" id="resultText"></p>
-            <button id="restartBtn" type="button">Пройти заново</button>
+            <button id="restartBtn" type="button">Пройти тест заново</button>
           </section>
         </section>
       </section>
     </main>
 
     <script>
-      const setupForm = document.getElementById("setupForm");
       const quizStage = document.getElementById("quizStage");
-      const resultStage = document.getElementById("resultStage");
+      const replayStage = document.getElementById("replayStage");
       const chatWindow = document.getElementById("chatWindow");
       const chatStatus = document.getElementById("chatStatus");
       const quizProgress = document.getElementById("quizProgress");
@@ -99,82 +63,146 @@
       const resultText = document.getElementById("resultText");
       const restartBtn = document.getElementById("restartBtn");
 
-      const introMessages = [
-        (state) => ({
-          side: "left",
-          text: `${state.anniversaryDate} — дата, с которой началась наша история ✨`,
-        }),
-        (state) => ({
-          side: "right",
-          text: `${state.yourName} и ${state.partnerName}: вспоминаем первый диалог…`,
-        }),
-        () => ({
-          side: "left",
-          text: "Сейчас будут короткие вопросы с вариантами ответов (по 3 варианта).",
-        }),
-      ];
-
-      // Замените эти тексты на реальные, когда пришлёте скрины первых страниц переписки.
       const quizData = [
         {
-          prompt: "Кто написал самое первое «Привет»?",
-          options: [
-            { label: "Это написал(а) я", correct: true, side: "right" },
-            { label: "Это написала невеста", correct: false, side: "left" },
-            { label: "Сообщение было без «Привет»", correct: false, side: "left" },
-          ],
-          reveal: {
-            left: "Невеста: Привет 😊",
-            right: "Ты: Привет! Очень рад(а) твоему сообщению",
-          },
+          prompt: "Кто написал: «Как и думал) Красотка)»?",
+          options: ["Альберт", "Катя (kdak)", "Оба одновременно"],
+          correct: 0,
         },
         {
-          prompt: "Кто первым задал вопрос «Как прошёл день?»",
-          options: [
-            { label: "Первым(ой) был(а) я", correct: false, side: "right" },
-            { label: "Первой была невеста", correct: true, side: "left" },
-            { label: "Этого вопроса не было", correct: false, side: "left" },
-          ],
-          reveal: {
-            left: "Невеста: Как твой день прошёл?",
-            right: "Ты: Намного лучше после твоего сообщения 💛",
-          },
+          prompt: "Кто написал: «спасибо хахаха»?",
+          options: ["Альберт", "Катя (kdak)", "Другое имя"],
+          correct: 1,
         },
         {
-          prompt: "Кто первым предложил продолжить общение завтра?",
-          options: [
-            { label: "Это предложил(а) я", correct: false, side: "right" },
-            { label: "Это предложила невеста", correct: false, side: "left" },
-            { label: "Мы предложили это почти одновременно", correct: true, side: "right" },
-          ],
-          reveal: {
-            left: "Невеста: Давай завтра тоже спишемся?",
-            right: "Ты: Да! Я как раз хотел(а) это предложить ✨",
-          },
+          prompt: "Кто спросил: «Любишь путешествовать?)»?",
+          options: ["Катя (kdak)", "Альберт", "Никто, такого не было"],
+          correct: 1,
+        },
+        {
+          prompt: "Кто написал фразу про «провезу тебя в чемоданчике»?",
+          options: ["Альберт", "Катя (kdak)", "Оба"],
+          correct: 1,
+        },
+        {
+          prompt: "Кто написал: «Айти) front end разработчик…»?",
+          options: ["Катя (kdak)", "Альберт", "Это системное сообщение"],
+          correct: 1,
+        },
+        {
+          prompt: "Кто раскрыл имя в конце: «Катя, приятно познакомиться хахах»?",
+          options: ["Альберт", "Катя (kdak)", "Никто"],
+          correct: 1,
         },
       ];
 
-      const endingMessages = [
-        (state) => ({
-          side: "left",
-          text: `${state.partnerName}: Спасибо, что бережно хранишь нашу историю ❤️`,
-        }),
-        (state) => ({
-          side: "right",
-          text: `${state.yourName}: С годовщиной нас. Люблю тебя!`,
-        }),
+      const chatTimeline = [
+        { date: "14 апреля 2023", sender: "Альберт", side: "right", text: "20:23\nКак и думал) Красотка)" },
+        { sender: "Катя (kdak)", side: "left", text: "20:32\nспасибо хахаха" },
+        { sender: "Альберт", side: "right", text: "22:13\nЧем любишь заниматься?)" },
+        { sender: "Катя (kdak)", side: "left", text: "22:33\nлюблю с друзьями и семьей время проводить\nно из-за учебы мало на это времени" },
+        { sender: "Катя (kdak)", side: "left", text: "22:33\nа ты?" },
+        { sender: "Альберт", side: "right", text: "22:56\nТоже люблю проводить время со своими близкими, но у меня учеба уже в этом году заканчивается, а мало провожу с ними время из-за работы... Но периодически получается вылетать куда-то отдохнуть, это прям хорошая перезагрузка" },
+        { sender: "Альберт", side: "right", text: "22:57\nЛюбишь путешествовать?)" },
+        { sender: "Катя (kdak)", side: "left", text: "23:09\nлюблю" },
+        { sender: "Катя (kdak)", side: "left", text: "23:10\nнравится на кривые места смотреть" },
+        { sender: "Альберт", side: "right", text: "23:21\nКрасивые? Горы?)" },
+        { sender: "Катя (kdak)", side: "left", text: "23:50\nну горы красивые" },
+        { sender: "Катя (kdak)", side: "left", text: "23:50\nнравится" },
+
+        { date: "15 апреля 2023", sender: "Альберт", side: "right", text: "00:06\nЯ обожаю, в Армении тоже красивые горы)\nА где была в последний раз?" },
+        { sender: "Катя (kdak)", side: "left", text: "00:26\nв Армении я не была хахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:27\nв Греции, Турции, но в основном в Сочи и в Краснодарском крае отдыхаем" },
+        { sender: "Альберт", side: "right", text: "00:35\nНу может быть как-нибудь 😂" },
+        { sender: "Альберт", side: "right", text: "00:36\nОо и какого в Греции?)\nЯ на Кипре часто бывал, очень хотелось в Грецию, но проблемы с визой были" },
+        { sender: "Катя (kdak)", side: "left", text: "00:37\nну может быть как-нибудь хахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:37\nпровезу тебя в чемоданчике" },
+        { sender: "Альберт", side: "right", text: "00:40\nВхахах, я не против" },
+        { sender: "Альберт", side: "right", text: "00:41\nСразу в евротур пожалуйста" },
+        { sender: "Альберт", side: "right", text: "00:41\nПо странам" },
+        { sender: "Альберт", side: "right", text: "00:42\nНу впринципе ты в Сочи часто отдыхаешь, можно сказать мини Армения😂" },
+        { sender: "Катя (kdak)", side: "left", text: "00:45\nхахахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:45\nхахахах ну да" },
+        { sender: "Альберт", side: "right", text: "00:55\nА ты в каком универе учишься ? На каком курсе?" },
+        { sender: "Катя (kdak)", side: "left", text: "12:55\nпирогова" },
+        { sender: "Катя (kdak)", side: "left", text: "12:55\n2 курс" },
+        { sender: "Альберт", side: "right", text: "14:23\nО, медицинский) Тогда понимаю почему такая нагрузка😂" },
+        { sender: "Альберт", side: "right", text: "14:23\nРанхигс 4 курс" },
+        { sender: "Альберт", side: "right", text: "14:23\nСама выбирала?)" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nхахахах дада" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nна кого учишься?" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nага" },
+        { sender: "Альберт", side: "right", text: "14:31\nФинансы" },
+        { sender: "Альберт", side: "right", text: "14:31\nА у вас там 5 курсов же вроде да?" },
+        { sender: "Альберт", side: "right", text: "14:32\nЕще и практика с 1 курса вроде" },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\n6..." },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\nага" },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\nно практика летом после экзаменов" },
+        { sender: "Катя (kdak)", side: "left", text: "14:40\nкороче не жизнь а сказка" },
+        { sender: "Альберт", side: "right", text: "14:44\nХотя бы оплачиваемая или нет?" },
+        { sender: "Альберт", side: "right", text: "14:44\nКапец)" },
+        { sender: "Альберт", side: "right", text: "14:44\nДа да😂" },
+        { sender: "Альберт", side: "right", text: "14:45\nПросто у моих знакомых с мгмсу тоже медицинский, практика по вечерам вообще после пар" },
+        { sender: "Альберт", side: "right", text: "14:46\nА какое именно направление?" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nнет!" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nой ну это еще хуже" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nпосле пар я всегда как выжатый лимон" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nпедиатрия" },
+        { sender: "Альберт", side: "right", text: "15:35\nУ вас с 9 пары? Или вечерний?" },
+        { sender: "Альберт", side: "right", text: "15:36\nТут выгореть оч легко" },
+        { sender: "Альберт", side: "right", text: "15:37\nЯ свое направление выбрал так как тут можно легко совмещать с работой" },
+        { sender: "Катя (kdak)", side: "left", text: "15:53\nкаждый день по-разному\nиногда в 8:30 иногда в 14" },
+        { sender: "Катя (kdak)", side: "left", text: "15:54\nработаешь?" },
+        { sender: "Альберт", side: "right", text: "16:17\nЯ уже и забыл какого это в 8:30 на пары идти😂 у нас с 3 курса график только с 14" },
+        { sender: "Катя (kdak)", side: "left", text: "16:27\nвезет" },
+        { sender: "Альберт", side: "right", text: "16:28\nАга, 3 года уже)" },
+        { sender: "Альберт", side: "right", text: "16:29\nНу для работы график конечно такой себе, но в основном дистант работа поэтому успеваю" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nмолодец" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nкем работаешь" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nесли не секрет" },
+        { sender: "Альберт", side: "right", text: "16:52\nАйти) front end разработчик, ну это если полное название" },
+        { sender: "Альберт", side: "right", text: "16:54\nТип у меня и стабильная работа там, плюс проекты регулярно беру" },
+        { sender: "Альберт", side: "right", text: "16:55\nСайты все дела)" },
+        { sender: "Катя (kdak)", side: "left", text: "17:02\nкак так получилось что работаешь в айти а учишься на финансы" },
+        { sender: "Альберт", side: "right", text: "17:05\nАхаха, мне самому это интересно😂\nЯ сам просто учился на айти и так нашел работу, а финансы понял, что не мое, но продолжил учиться для финансовой грамотности и бизнеса" },
+        { sender: "Катя (kdak)", side: "left", text: "17:13\nинтересно" },
+        { sender: "Катя (kdak)", side: "left", text: "17:13\nа учился на айти когда" },
+        { sender: "Альберт", side: "right", text: "17:15\nДа даж не помню, ну где-то в 11 классе начал" },
+        { sender: "Альберт", side: "right", text: "17:17\nПросто это очень удобная по графику работа для универа" },
+        { sender: "Катя (kdak)", side: "left", text: "17:20\nпонятно понятно" },
+        { sender: "Катя (kdak)", side: "left", text: "17:20\nну молодец" },
+        { sender: "Альберт", side: "right", text: "18:37\nСпасибо, но учиться на меде большее достижение😂" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nхахахахах" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nда неее" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nты бы справился" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nя уверена" },
+        { sender: "Альберт", side: "right", text: "19:20\nНее😂 Мед это реально трудно, ну по крайней мере совмещать с работой не получилось бы\nУ вас же капец трудные экзамены и зачеты" },
+        { sender: "Катя (kdak)", side: "left", text: "19:30\nну в этом плане да" },
+        { sender: "Альберт", side: "right", text: "20:54\nПривет) как ты? Не хочешь пойти в ресторан на неделе, уже вживую пообщаемся)" },
+        { sender: "Катя (kdak)", side: "left", text: "21:08\nпривет, хорошо. ты как?" },
+        { sender: "Катя (kdak)", side: "left", text: "21:08\nна этой неделе занята, может только к выходным освобожусь" },
+        { sender: "Альберт", side: "right", text: "21:19\nДа неплохо) только усталый, заканчиваю тренировку, домой собираюсь, как день прошел?" },
+        { sender: "Альберт", side: "right", text: "21:19\nДавай тогда на выходных" },
+        { sender: "Альберт", side: "right", text: "21:19\nПонимаю тяжелый график в мед универе😂\nА у вас пары когда заканчиваются?" },
+        { sender: "Альберт", side: "right", text: "21:26\nИ я за время общение еще не узнал твое имя) Ты везде скрытная?)" },
+        { sender: "Катя (kdak)", side: "left", text: "21:27\nнормально, весь день училась, сейчас отдыхаю" },
+        { sender: "Катя (kdak)", side: "left", text: "21:27\nкогда как иногда вечером иногда ..." },
+        { sender: "Катя (kdak)", side: "left", text: "21:28\nКатя, приятно познакомиться хахах" },
+        { sender: "Альберт", side: "right", text: "21:30\nВзаимно 😂" },
+        { sender: "Альберт", side: "right", text: "21:31\nОхх... а зачеты сами когда начнутся?" },
+        { sender: "Альберт", side: "right", text: "21:32\nУ нас просто на прошлой неделе закончилась сессия уже, сейчас практика, а потом госы и диплом🥲" },
+        { sender: "Катя (kdak)", side: "left", text: "21:34\nу нас их нет\nколлоквиумы постоянно потом сессия" },
+        { sender: "Катя (kdak)", side: "left", text: "21:34\nужас" },
       ];
 
       const state = {
-        anniversaryDate: "",
-        yourName: "Ты",
-        partnerName: "Невеста",
         questionIndex: 0,
         score: 0,
+        replayTimer: null,
       };
 
       function showStage(stageEl) {
-        [setupForm, quizStage, resultStage].forEach((el) => el.classList.remove("is-active"));
+        [quizStage, replayStage].forEach((el) => el.classList.remove("is-active"));
         stageEl.classList.add("is-active");
       }
 
@@ -186,13 +214,11 @@
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }
 
-      function appendMessages(messages, delay = 500) {
-        messages.forEach((createMessage, index) => {
-          setTimeout(() => {
-            const message = createMessage(state);
-            addBubble(message.text, message.side);
-          }, delay * (index + 1));
-        });
+      function addDateDivider(text) {
+        const divider = document.createElement("p");
+        divider.className = "date-divider";
+        divider.textContent = text;
+        chatWindow.appendChild(divider);
       }
 
       function renderQuestion() {
@@ -201,27 +227,32 @@
         quizQuestion.textContent = current.prompt;
         quizOptions.innerHTML = "";
 
-        current.options.forEach((option) => {
+        current.options.forEach((optionText, optionIndex) => {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "option-btn";
-          btn.textContent = option.label;
-          btn.addEventListener("click", () => submitAnswer(option, current));
+          btn.textContent = optionText;
+          btn.addEventListener("click", () => submitAnswer(optionIndex, optionText));
           quizOptions.appendChild(btn);
         });
       }
 
-      function submitAnswer(option, currentQuestion) {
-        if (option.correct) {
+      function submitAnswer(selectedIndex, optionText) {
+        const current = quizData[state.questionIndex];
+        const isCorrect = selectedIndex === current.correct;
+
+        if (isCorrect) {
           state.score += 1;
-          chatStatus.textContent = "Точно! Продолжаем нашу переписку 💛";
+          chatStatus.textContent = "Верно! Идём дальше 💛";
         } else {
-          chatStatus.textContent = "Ничего, это просто тёплая игра воспоминаний ✨";
+          chatStatus.textContent = "Ничего, это игра воспоминаний ✨";
         }
 
-        addBubble(`Выбор: ${option.label}`, option.side);
-        addBubble(currentQuestion.reveal.left, "left");
-        addBubble(currentQuestion.reveal.right, "right");
+        addBubble(`Твой ответ: ${optionText}`, "right");
+        addBubble(
+          `Правильно: ${current.options[current.correct]}`,
+          "left"
+        );
 
         state.questionIndex += 1;
 
@@ -230,37 +261,56 @@
           return;
         }
 
-        appendMessages(endingMessages, 650);
-        resultText.textContent = `Ты угадал(а) ${state.score} из ${quizData.length}. Когда пришлёшь реальные первые сообщения, я подгоню вопросы один в один под вашу переписку.`;
-        chatStatus.textContent = "История завершена. С годовщиной вас!";
-        showStage(resultStage);
+        resultText.textContent = `Результат: ${state.score}/${quizData.length}. Теперь запускаю ваш чат постепенно, как в переписке.`;
+        showStage(replayStage);
+        startReplay();
       }
 
-      setupForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const data = new FormData(setupForm);
-        state.anniversaryDate = data.get("anniversaryDate").toString().trim();
-        state.yourName = data.get("yourName").toString().trim();
-        state.partnerName = data.get("partnerName").toString().trim();
-        state.questionIndex = 0;
-        state.score = 0;
+      function startReplay() {
+        if (state.replayTimer) {
+          clearInterval(state.replayTimer);
+        }
 
         chatWindow.innerHTML = "";
-        chatStatus.textContent = "Запускаю историю ваших первых сообщений…";
+        chatStatus.textContent = "Воспроизведение переписки началось…";
 
-        appendMessages(introMessages, 550);
-        showStage(quizStage);
-        setTimeout(renderQuestion, 1800);
-      });
+        let index = 0;
+
+        state.replayTimer = setInterval(() => {
+          const item = chatTimeline[index];
+
+          if (!item) {
+            clearInterval(state.replayTimer);
+            state.replayTimer = null;
+            chatStatus.textContent = "Переписка воспроизведена полностью. С годовщиной вас ❤️";
+            return;
+          }
+
+          if (item.date) {
+            addDateDivider(item.date);
+          }
+
+          addBubble(`${item.sender}\n${item.text}`, item.side);
+          index += 1;
+        }, 850);
+      }
 
       restartBtn.addEventListener("click", () => {
-        setupForm.reset();
+        if (state.replayTimer) {
+          clearInterval(state.replayTimer);
+          state.replayTimer = null;
+        }
+
+        state.questionIndex = 0;
+        state.score = 0;
         chatWindow.innerHTML = "";
-        addBubble("Здесь появится наша история — шаг за шагом 💛", "left");
-        chatStatus.textContent = "Заполни общие вопросы и нажми «Начать» ✨";
-        showStage(setupForm);
+        addBubble("Здесь постепенно появятся ваши сообщения 💬", "left");
+        chatStatus.textContent = "Пройди тест, чтобы открыть переписку целиком ✨";
+        showStage(quizStage);
+        renderQuestion();
       });
+
+      renderQuestion();
     </script>
   </body>
 </html>
