@@ -1,394 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Наша первая переписка — Альберт и Катя 💛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Bootstrap Project</title>
   </head>
   <body>
-    <div class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
-      <div class="container">
-        <div class="navbar-brand" style="cursor: pointer;">LoopLAB</div>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#nav1"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav1">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item">
-              <a href="#explore" class="nav-link">Explore</a>
-            </li>
-            <li class="nav-item">
-              <a href="#create" class="nav-link">Create</a>
-            </li>
-            <li class="nav-item">
-              <a href="#share" class="nav-link">Share</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <section id="home" class="text-white">
-      <div class="home-inner container">
-        <div class="row">
-          <div class="col-lg-8 d-lg-block d-none">
-            <h1 class="display-4">
-              Build <strong>social profiles</strong> and gain revenue
-              <strong>profits</strong>
-            </h1>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed,
-                tempore iusto in minima facere dolorem!
-              </div>
-            </div>
+    <main class="app">
+      <section class="hero">
+        <p class="badge">13 апреля — 3 года вместе</p>
+        <h1>Первая переписка: Альберт и Катя (kdak)</h1>
+        <p class="subtitle">
+          Просто красивое воспроизведение вашей истории — сообщения появляются
+          постепенно, как в живом чате 💬
+        </p>
+      </section>
+
+      <section class="content single-column">
+        <article class="chat-card" aria-live="polite">
+          <header class="chat-header">
+            <h2>14–15 апреля 2023</h2>
+            <p id="chatStatus">Запускаю переписку…</p>
+          </header>
+
+          <div id="chatWindow" class="chat-window"></div>
+
+          <div class="chat-actions">
+            <button id="restartBtn" type="button">Запустить заново</button>
           </div>
-          <div class="col-lg-4 text-center" id="form">
-            <div class="card bg-primary">
-              <div class="card-body">
-                <h3 class="text-capitalize card-title">Sign up today</h3>
-                <p>Please fill out this form to register</p>
-                <form>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Email"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="form-control form-control-lg mb-3"
-                  />
-                  <input
-                    type="submit"
-                    class="btn btn-block btn-outline-light"
-                    value="Submit"
-                  />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="explore">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Explore</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-secondary text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="explore-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/explore-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Explore & Connect
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Create</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="create-body" class="text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5 order-1">
-            <img
-              class="rounded-circle w-100"
-              src="./img/create-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5">
-            <h1 class="h3">
-              Create Your Passion
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share" class="bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col py-5 text-white text-center">
-            <h1 class="display-4">Share</h1>
-            <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              doloribus ut iure itaque quibusdam rem accusantium deserunt
-              reprehenderit sunt minus.
-            </p>
-            <button class="btn btn-outline-light text-capitalize">
-              Find out more
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="share-body" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 py-5">
-            <img
-              class="border rounded-circle w-100"
-              src="./img/share-section1.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-md-6 py-5 text-muted">
-            <h1 class="h3">
-              Share What You Create
-            </h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
-              reiciendis, voluptate at alias laborum odit aliquid tempore
-              perspiciatis repudiandae hic?
-            </p>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="p-4 align-self-start">
-                <i class="fas fa-check fa-2x"></i>
-              </div>
-              <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-                distinctio iusto, perspiciatis mollitia natus harum?
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center text-white">
-          <div class="col-md py-4">
-            <h3>LoopLAB</h3>
-            <p>Copyright Albert's &copy; 2020</p>
-            <button
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#modal"
-            >
-              Contact Us
-            </button>
-            <div class="modal text-dark text-left" id="modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h3 class="modal-title h5">Contact Us</h3>
-                    <button class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" class="form-control mb-3" />
-                      <label for="email">Email</label>
-                      <input type="text" id="email" class="form-control mb-3" />
-                      <label for="message">Message</label>
-                      <textarea
-                        class="d-block form-control mb-3"
-                        id="message"
-                      ></textarea>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      class="btn btn-primary btn-block"
-                      data-dismiss="modal"
-                      data-target="#modal"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+        </article>
+      </section>
+    </main>
+
     <script>
-      $("body").scrollspy({ target: "#nav1" });
-      $("#nav1 a").on("click", function (e) {
-        if (this.hash !== "") {
-          e.preventDefault();
-          const hash = this.hash;
-          $("html,body").animate(
-            {
-              scrollTop: $(hash).offset().top,
-            },
-            900,
-            function () {
-              window.location.hash = hash;
-            }
-          );
+      const chatWindow = document.getElementById("chatWindow");
+      const chatStatus = document.getElementById("chatStatus");
+      const restartBtn = document.getElementById("restartBtn");
+
+      const chatTimeline = [
+        { date: "14 апреля 2023", sender: "Альберт", side: "right", text: "20:23\nКак и думал) Красотка)" },
+        { sender: "Катя (kdak)", side: "left", text: "20:32\nспасибо хахаха" },
+        { sender: "Альберт", side: "right", text: "22:13\nЧем любишь заниматься?)" },
+        { sender: "Катя (kdak)", side: "left", text: "22:33\nлюблю с друзьями и семьей время проводить\nно из-за учебы мало на это времени" },
+        { sender: "Катя (kdak)", side: "left", text: "22:33\nа ты?" },
+        { sender: "Альберт", side: "right", text: "22:56\nТоже люблю проводить время со своими близкими, но у меня учеба уже в этом году заканчивается, а мало провожу с ними время из-за работы... Но периодически получается вылетать куда-то отдохнуть, это прям хорошая перезагрузка" },
+        { sender: "Альберт", side: "right", text: "22:57\nЛюбишь путешествовать?)" },
+        { sender: "Катя (kdak)", side: "left", text: "23:09\nлюблю" },
+        { sender: "Катя (kdak)", side: "left", text: "23:10\nнравится на кривые места смотреть" },
+        { sender: "Альберт", side: "right", text: "23:21\nКрасивые? Горы?)" },
+        { sender: "Катя (kdak)", side: "left", text: "23:50\nну горы красивые" },
+        { sender: "Катя (kdak)", side: "left", text: "23:50\nнравится" },
+        { date: "15 апреля 2023", sender: "Альберт", side: "right", text: "00:06\nЯ обожаю, в Армении тоже красивые горы)\nА где была в последний раз?" },
+        { sender: "Катя (kdak)", side: "left", text: "00:26\nв Армении я не была хахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:27\nв Греции, Турции, но в основном в Сочи и в Краснодарском крае отдыхаем" },
+        { sender: "Альберт", side: "right", text: "00:35\nНу может быть как-нибудь 😂" },
+        { sender: "Альберт", side: "right", text: "00:36\nОо и какого в Греции?)\nЯ на Кипре часто бывал, очень хотелось в Грецию, но проблемы с визой были" },
+        { sender: "Катя (kdak)", side: "left", text: "00:37\nну может быть как-нибудь хахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:37\nпровезу тебя в чемоданчике" },
+        { sender: "Альберт", side: "right", text: "00:40\nВхахах, я не против" },
+        { sender: "Альберт", side: "right", text: "00:41\nСразу в евротур пожалуйста" },
+        { sender: "Альберт", side: "right", text: "00:41\nПо странам" },
+        { sender: "Альберт", side: "right", text: "00:42\nНу впринципе ты в Сочи часто отдыхаешь, можно сказать мини Армения😂" },
+        { sender: "Катя (kdak)", side: "left", text: "00:45\nхахахахаха" },
+        { sender: "Катя (kdak)", side: "left", text: "00:45\nхахахах ну да" },
+        { sender: "Альберт", side: "right", text: "00:55\nА ты в каком универе учишься ? На каком курсе?" },
+        { sender: "Катя (kdak)", side: "left", text: "12:55\nпирогова" },
+        { sender: "Катя (kdak)", side: "left", text: "12:55\n2 курс" },
+        { sender: "Альберт", side: "right", text: "14:23\nО, медицинский) Тогда понимаю почему такая нагрузка😂" },
+        { sender: "Альберт", side: "right", text: "14:23\nРанхигс 4 курс" },
+        { sender: "Альберт", side: "right", text: "14:23\nСама выбирала?)" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nхахахах дада" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nна кого учишься?" },
+        { sender: "Катя (kdak)", side: "left", text: "14:28\nага" },
+        { sender: "Альберт", side: "right", text: "14:31\nФинансы" },
+        { sender: "Альберт", side: "right", text: "14:31\nА у вас там 5 курсов же вроде да?" },
+        { sender: "Альберт", side: "right", text: "14:32\nЕще и практика с 1 курса вроде" },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\n6..." },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\nага" },
+        { sender: "Катя (kdak)", side: "left", text: "14:39\nно практика летом после экзаменов" },
+        { sender: "Катя (kdak)", side: "left", text: "14:40\nкороче не жизнь а сказка" },
+        { sender: "Альберт", side: "right", text: "14:44\nХотя бы оплачиваемая или нет?" },
+        { sender: "Альберт", side: "right", text: "14:44\nКапец)" },
+        { sender: "Альберт", side: "right", text: "14:44\nДа да😂" },
+        { sender: "Альберт", side: "right", text: "14:45\nПросто у моих знакомых с мгмсу тоже медицинский, практика по вечерам вообще после пар" },
+        { sender: "Альберт", side: "right", text: "14:46\nА какое именно направление?" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nнет!" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nой ну это еще хуже" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nпосле пар я всегда как выжатый лимон" },
+        { sender: "Катя (kdak)", side: "left", text: "14:55\nпедиатрия" },
+        { sender: "Альберт", side: "right", text: "15:35\nУ вас с 9 пары? Или вечерний?" },
+        { sender: "Альберт", side: "right", text: "15:36\nТут выгореть оч легко" },
+        { sender: "Альберт", side: "right", text: "15:37\nЯ свое направление выбрал так как тут можно легко совмещать с работой" },
+        { sender: "Катя (kdak)", side: "left", text: "15:53\nкаждый день по-разному\nиногда в 8:30 иногда в 14" },
+        { sender: "Катя (kdak)", side: "left", text: "15:54\nработаешь?" },
+        { sender: "Альберт", side: "right", text: "16:17\nЯ уже и забыл какого это в 8:30 на пары идти😂 у нас с 3 курса график только с 14" },
+        { sender: "Катя (kdak)", side: "left", text: "16:27\nвезет" },
+        { sender: "Альберт", side: "right", text: "16:28\nАга, 3 года уже)" },
+        { sender: "Альберт", side: "right", text: "16:29\nНу для работы график конечно такой себе, но в основном дистант работа поэтому успеваю" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nмолодец" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nкем работаешь" },
+        { sender: "Катя (kdak)", side: "left", text: "16:39\nесли не секрет" },
+        { sender: "Альберт", side: "right", text: "16:52\nАйти) front end разработчик, ну это если полное название" },
+        { sender: "Альберт", side: "right", text: "16:54\nТип у меня и стабильная работа там, плюс проекты регулярно беру" },
+        { sender: "Альберт", side: "right", text: "16:55\nСайты все дела)" },
+        { sender: "Катя (kdak)", side: "left", text: "17:02\nкак так получилось что работаешь в айти а учишься на финансы" },
+        { sender: "Альберт", side: "right", text: "17:05\nАхаха, мне самому это интересно😂\nЯ сам просто учился на айти и так нашел работу, а финансы понял, что не мое, но продолжил учиться для финансовой грамотности и бизнеса" },
+        { sender: "Катя (kdak)", side: "left", text: "17:13\nинтересно" },
+        { sender: "Катя (kdak)", side: "left", text: "17:13\nа учился на айти когда" },
+        { sender: "Альберт", side: "right", text: "17:15\nДа даж не помню, ну где-то в 11 классе начал" },
+        { sender: "Альберт", side: "right", text: "17:17\nПросто это очень удобная по графику работа для универа" },
+        { sender: "Катя (kdak)", side: "left", text: "17:20\nпонятно понятно" },
+        { sender: "Катя (kdak)", side: "left", text: "17:20\nну молодец" },
+        { sender: "Альберт", side: "right", text: "18:37\nСпасибо, но учиться на меде большее достижение😂" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nхахахахах" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nда неее" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nты бы справился" },
+        { sender: "Катя (kdak)", side: "left", text: "18:57\nя уверена" },
+        { sender: "Альберт", side: "right", text: "19:20\nНее😂 Мед это реально трудно, ну по крайней мере совмещать с работой не получилось бы\nУ вас же капец трудные экзамены и зачеты" },
+        { sender: "Катя (kdak)", side: "left", text: "19:30\nну в этом плане да" },
+        { sender: "Альберт", side: "right", text: "20:54\nПривет) как ты? Не хочешь пойти в ресторан на неделе, уже вживую пообщаемся)" },
+        { sender: "Катя (kdak)", side: "left", text: "21:08\nпривет, хорошо. ты как?" },
+        { sender: "Катя (kdak)", side: "left", text: "21:08\nна этой неделе занята, может только к выходным освобожусь" },
+        { sender: "Альберт", side: "right", text: "21:19\nДа неплохо) только усталый, заканчиваю тренировку, домой собираюсь, как день прошел?" },
+        { sender: "Альберт", side: "right", text: "21:19\nДавай тогда на выходных" },
+        { sender: "Альберт", side: "right", text: "21:19\nПонимаю тяжелый график в мед универе😂\nА у вас пары когда заканчиваются?" },
+        { sender: "Альберт", side: "right", text: "21:26\nИ я за время общение еще не узнал твое имя) Ты везде скрытная?)" },
+        { sender: "Катя (kdak)", side: "left", text: "21:27\nнормально, весь день училась, сейчас отдыхаю" },
+        { sender: "Катя (kdak)", side: "left", text: "21:27\nкогда как иногда вечером иногда ..." },
+        { sender: "Катя (kdak)", side: "left", text: "21:28\nКатя, приятно познакомиться хахах" },
+        { sender: "Альберт", side: "right", text: "21:30\nВзаимно 😂" },
+        { sender: "Альберт", side: "right", text: "21:31\nОхх... а зачеты сами когда начнутся?" },
+        { sender: "Альберт", side: "right", text: "21:32\nУ нас просто на прошлой неделе закончилась сессия уже, сейчас практика, а потом госы и диплом🥲" },
+        { sender: "Катя (kdak)", side: "left", text: "21:34\nу нас их нет\nколлоквиумы постоянно потом сессия" },
+        { sender: "Катя (kdak)", side: "left", text: "21:34\nужас" },
+      ];
+
+      let replayTimer = null;
+
+      function addBubble(text, sideClass) {
+        const bubble = document.createElement("article");
+        bubble.className = `bubble bubble-pop ${sideClass === "left" ? "bubble-left" : "bubble-right"}`;
+        bubble.textContent = text;
+        chatWindow.appendChild(bubble);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      function addDateDivider(text) {
+        const divider = document.createElement("p");
+        divider.className = "date-divider bubble-pop";
+        divider.textContent = text;
+        chatWindow.appendChild(divider);
+      }
+
+      function startReplay() {
+        if (replayTimer) {
+          clearTimeout(replayTimer);
+          replayTimer = null;
         }
-      });
-      $(".navbar-brand").on("click", function (e) {
-        window.location.hash = "#home";
-        this.hash = "#home";
-        e.preventDefault();
-        const hash = this.hash;
-        $("html,body").animate(
-          {
-            scrollTop: $(hash).offset().top,
-          },
-          900,
-          function () {
-            window.location.hash = hash;
+
+        chatWindow.innerHTML = "";
+        chatStatus.textContent = "Переписка идет…";
+
+        let index = 0;
+
+        const pushNextMessage = () => {
+          const item = chatTimeline[index];
+
+          if (!item) {
+            chatStatus.textContent = "Вся история показана 💛";
+            replayTimer = null;
+            return;
           }
-        );
-      });
+
+          if (item.date) {
+            addDateDivider(item.date);
+          }
+
+          addBubble(`${item.sender}\n${item.text}`, item.side);
+          index += 1;
+
+          const nextDelay = item.text.length > 100 ? 1250 : 850;
+          replayTimer = setTimeout(pushNextMessage, nextDelay);
+        };
+
+        pushNextMessage();
+      }
+
+      restartBtn.addEventListener("click", startReplay);
+      startReplay();
     </script>
   </body>
 </html>
