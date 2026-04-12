@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Первая переписка — Альберт и Катя 💛</title>
+    <title>Наша первая переписка — Альберт и Катя 💛</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,85 +16,33 @@
     <main class="app">
       <section class="hero">
         <p class="badge">13 апреля — 3 года вместе</p>
-        <h1>Тест по вашей первой переписке</h1>
+        <h1>Первая переписка: Альберт и Катя (kdak)</h1>
         <p class="subtitle">
-          Сначала мини‑тест с вариантами ответа, а после него — постепенное
-          воспроизведение вашего чата от 14–15 апреля 2023.
+          Просто красивое воспроизведение вашей истории — сообщения появляются
+          постепенно, как в живом чате 💬
         </p>
       </section>
 
-      <section class="content">
+      <section class="content single-column">
         <article class="chat-card" aria-live="polite">
           <header class="chat-header">
-            <h2>Виртуальный чат: Альберт и Катя (kdak)</h2>
-            <p id="chatStatus">Пройди тест, чтобы открыть переписку целиком ✨</p>
+            <h2>14–15 апреля 2023</h2>
+            <p id="chatStatus">Запускаю переписку…</p>
           </header>
 
-          <div id="chatWindow" class="chat-window">
-            <article class="bubble bubble-left">Здесь постепенно появятся ваши сообщения 💬</article>
+          <div id="chatWindow" class="chat-window"></div>
+
+          <div class="chat-actions">
+            <button id="restartBtn" type="button">Запустить заново</button>
           </div>
         </article>
-
-        <section class="quiz-card">
-          <section id="quizStage" class="memory-form stage is-active" aria-live="polite">
-            <h2>Кто это написал?</h2>
-            <p class="helper" id="quizProgress">Вопрос 1 из 6</p>
-            <p class="question" id="quizQuestion"></p>
-            <div id="quizOptions" class="options"></div>
-          </section>
-
-          <section id="replayStage" class="memory-form stage">
-            <h2>Готово 💫</h2>
-            <p class="helper" id="resultText"></p>
-            <button id="restartBtn" type="button">Пройти тест заново</button>
-          </section>
-        </section>
       </section>
     </main>
 
     <script>
-      const quizStage = document.getElementById("quizStage");
-      const replayStage = document.getElementById("replayStage");
       const chatWindow = document.getElementById("chatWindow");
       const chatStatus = document.getElementById("chatStatus");
-      const quizProgress = document.getElementById("quizProgress");
-      const quizQuestion = document.getElementById("quizQuestion");
-      const quizOptions = document.getElementById("quizOptions");
-      const resultText = document.getElementById("resultText");
       const restartBtn = document.getElementById("restartBtn");
-
-      const quizData = [
-        {
-          prompt: "Кто написал: «Как и думал) Красотка)»?",
-          options: ["Альберт", "Катя (kdak)", "Оба одновременно"],
-          correct: 0,
-        },
-        {
-          prompt: "Кто написал: «спасибо хахаха»?",
-          options: ["Альберт", "Катя (kdak)", "Другое имя"],
-          correct: 1,
-        },
-        {
-          prompt: "Кто спросил: «Любишь путешествовать?)»?",
-          options: ["Катя (kdak)", "Альберт", "Никто, такого не было"],
-          correct: 1,
-        },
-        {
-          prompt: "Кто написал фразу про «провезу тебя в чемоданчике»?",
-          options: ["Альберт", "Катя (kdak)", "Оба"],
-          correct: 1,
-        },
-        {
-          prompt: "Кто написал: «Айти) front end разработчик…»?",
-          options: ["Катя (kdak)", "Альберт", "Это системное сообщение"],
-          correct: 1,
-        },
-        {
-          prompt: "Кто раскрыл имя в конце: «Катя, приятно познакомиться хахах»?",
-          options: ["Альберт", "Катя (kdak)", "Никто"],
-          correct: 1,
-        },
-      ];
 
       const chatTimeline = [
         { date: "14 апреля 2023", sender: "Альберт", side: "right", text: "20:23\nКак и думал) Красотка)" },
@@ -109,7 +57,6 @@
         { sender: "Альберт", side: "right", text: "23:21\nКрасивые? Горы?)" },
         { sender: "Катя (kdak)", side: "left", text: "23:50\nну горы красивые" },
         { sender: "Катя (kdak)", side: "left", text: "23:50\nнравится" },
-
         { date: "15 апреля 2023", sender: "Альберт", side: "right", text: "00:06\nЯ обожаю, в Армении тоже красивые горы)\nА где была в последний раз?" },
         { sender: "Катя (kdak)", side: "left", text: "00:26\nв Армении я не была хахахаха" },
         { sender: "Катя (kdak)", side: "left", text: "00:27\nв Греции, Турции, но в основном в Сочи и в Краснодарском крае отдыхаем" },
@@ -195,20 +142,11 @@
         { sender: "Катя (kdak)", side: "left", text: "21:34\nужас" },
       ];
 
-      const state = {
-        questionIndex: 0,
-        score: 0,
-        replayTimer: null,
-      };
-
-      function showStage(stageEl) {
-        [quizStage, replayStage].forEach((el) => el.classList.remove("is-active"));
-        stageEl.classList.add("is-active");
-      }
+      let replayTimer = null;
 
       function addBubble(text, sideClass) {
         const bubble = document.createElement("article");
-        bubble.className = `bubble ${sideClass === "left" ? "bubble-left" : "bubble-right"}`;
+        bubble.className = `bubble bubble-pop ${sideClass === "left" ? "bubble-left" : "bubble-right"}`;
         bubble.textContent = text;
         chatWindow.appendChild(bubble);
         chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -216,73 +154,28 @@
 
       function addDateDivider(text) {
         const divider = document.createElement("p");
-        divider.className = "date-divider";
+        divider.className = "date-divider bubble-pop";
         divider.textContent = text;
         chatWindow.appendChild(divider);
       }
 
-      function renderQuestion() {
-        const current = quizData[state.questionIndex];
-        quizProgress.textContent = `Вопрос ${state.questionIndex + 1} из ${quizData.length}`;
-        quizQuestion.textContent = current.prompt;
-        quizOptions.innerHTML = "";
-
-        current.options.forEach((optionText, optionIndex) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "option-btn";
-          btn.textContent = optionText;
-          btn.addEventListener("click", () => submitAnswer(optionIndex, optionText));
-          quizOptions.appendChild(btn);
-        });
-      }
-
-      function submitAnswer(selectedIndex, optionText) {
-        const current = quizData[state.questionIndex];
-        const isCorrect = selectedIndex === current.correct;
-
-        if (isCorrect) {
-          state.score += 1;
-          chatStatus.textContent = "Верно! Идём дальше 💛";
-        } else {
-          chatStatus.textContent = "Ничего, это игра воспоминаний ✨";
-        }
-
-        addBubble(`Твой ответ: ${optionText}`, "right");
-        addBubble(
-          `Правильно: ${current.options[current.correct]}`,
-          "left"
-        );
-
-        state.questionIndex += 1;
-
-        if (state.questionIndex < quizData.length) {
-          renderQuestion();
-          return;
-        }
-
-        resultText.textContent = `Результат: ${state.score}/${quizData.length}. Теперь запускаю ваш чат постепенно, как в переписке.`;
-        showStage(replayStage);
-        startReplay();
-      }
-
       function startReplay() {
-        if (state.replayTimer) {
-          clearInterval(state.replayTimer);
+        if (replayTimer) {
+          clearTimeout(replayTimer);
+          replayTimer = null;
         }
 
         chatWindow.innerHTML = "";
-        chatStatus.textContent = "Воспроизведение переписки началось…";
+        chatStatus.textContent = "Переписка идет…";
 
         let index = 0;
 
-        state.replayTimer = setInterval(() => {
+        const pushNextMessage = () => {
           const item = chatTimeline[index];
 
           if (!item) {
-            clearInterval(state.replayTimer);
-            state.replayTimer = null;
-            chatStatus.textContent = "Переписка воспроизведена полностью. С годовщиной вас ❤️";
+            chatStatus.textContent = "Вся история показана 💛";
+            replayTimer = null;
             return;
           }
 
@@ -292,25 +185,16 @@
 
           addBubble(`${item.sender}\n${item.text}`, item.side);
           index += 1;
-        }, 850);
+
+          const nextDelay = item.text.length > 100 ? 1250 : 850;
+          replayTimer = setTimeout(pushNextMessage, nextDelay);
+        };
+
+        pushNextMessage();
       }
 
-      restartBtn.addEventListener("click", () => {
-        if (state.replayTimer) {
-          clearInterval(state.replayTimer);
-          state.replayTimer = null;
-        }
-
-        state.questionIndex = 0;
-        state.score = 0;
-        chatWindow.innerHTML = "";
-        addBubble("Здесь постепенно появятся ваши сообщения 💬", "left");
-        chatStatus.textContent = "Пройди тест, чтобы открыть переписку целиком ✨";
-        showStage(quizStage);
-        renderQuestion();
-      });
-
-      renderQuestion();
+      restartBtn.addEventListener("click", startReplay);
+      startReplay();
     </script>
   </body>
 </html>
